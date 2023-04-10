@@ -36,5 +36,6 @@ Route::get('features', function () {
 
 Route::get('user_list', [UserController::class,'index']); // PSR4
 Route::get('user_add', [UserController::class,'create']); // PSR4
+Route::post('user_add', [UserController::class,'store']); // PSR4
 
 

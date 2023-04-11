@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ContactController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,14 +22,6 @@ Route::get('about', function () {
    return view('about');
 });
 
-Route::get('contact', function () {
-   return view('contact');
-});
-
-Route::get('contact/{id}', function () {
-   return view('contact');
-});
-
 Route::get('features', function () {
    return view('features');
 });
@@ -38,4 +31,8 @@ Route::get('user_list', [UserController::class,'index']); // PSR4
 Route::get('user_add', [UserController::class,'create']); // PSR4
 Route::post('user_add', [UserController::class,'store']); // PSR4
 
+
+Route::get('contact', [ContactController::class,'index']);
+Route::get('contact_add', [ContactController::class,'create']);
+Route::post('contact_store', [ContactController::class,'store']); // PSR4
 

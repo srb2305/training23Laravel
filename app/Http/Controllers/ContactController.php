@@ -41,7 +41,7 @@ class ContactController extends Controller
         if($output){
             return redirect('contact')->with('success','Inserted Successfully');
         }else{
-            return redirect('contact')->with('error','Inserted Successfully');
+            return redirect('contact')->with('error','Something went wrong');
         }
     }
 
@@ -50,7 +50,9 @@ class ContactController extends Controller
      */
     public function show(string $id)
     {
-        //
+       // $data = Contact::where('id',$id)->first();
+       $data = Contact::find($id);
+       return view('contact.show',compact('data'));
     }
 
     /**
@@ -58,15 +60,28 @@ class ContactController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = Contact::find($id);
+       return view('contact.edit',compact('data'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        $id = $request['id'];
+        $update['name'] = $request['name'];
+        $update['email'] = $request['email'];
+        $update['contact'] = $request['contact'];
+        $update['message'] = $request['message'];
+        $update['updated_at'] = Carbon::now();
+        
+        $output = Contact::where('id',$id)->update($update);
+        if($output){
+            return redirect('contact')->with('success','Update Successfully');
+        }else{
+            return redirect('contact')->with('error','something went wrong');
+        }
     }
 
     /**
@@ -74,6 +89,7 @@ class ContactController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Contact::where('id',$id)->delete();
+        return redirect()->back();  
     }
 }

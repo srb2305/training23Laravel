@@ -33,6 +33,10 @@ Route::post('user_add', [UserController::class,'store']); // PSR4
 
 
 Route::get('contact', [ContactController::class,'index']);
+Route::get('contact/{id}', [ContactController::class,'show']);
+Route::get('contactEdit/{id}', [ContactController::class,'edit']);
+Route::get('contactDelete/{id}', [ContactController::class,'destroy']);
 Route::get('contact_add', [ContactController::class,'create']);
 Route::post('contact_store', [ContactController::class,'store']); // PSR4
+Route::post('contactUpdate', [ContactController::class,'update']); // PSR4
 

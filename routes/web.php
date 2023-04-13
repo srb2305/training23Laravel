@@ -40,3 +40,7 @@ Route::get('contact_add', [ContactController::class,'create']);
 Route::post('contact_store', [ContactController::class,'store']); // PSR4
 Route::post('contactUpdate', [ContactController::class,'update']); // PSR4
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -13,7 +13,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $data = Contact::get();
+        $data = Contact::paginate(4);
         return view('contact.index',compact('data'));
     }
 

@@ -1,4 +1,4 @@
-composer create-project laravel/laravel laravel8 8.0
+composer create-project laravel/laravel example-app
 
 composer require laravel/ui
 
@@ -10,4 +10,5 @@ npm run dev
 
 
 example.com/login
+
 example.com/register

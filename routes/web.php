@@ -41,6 +41,6 @@ Route::post('contact_store', [ContactController::class,'store']); // PSR4
 Route::post('contactUpdate', [ContactController::class,'update']); // PSR4
 
 
-Auth::routes();
+Auth::routes(); // login registration change_password forget password
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);

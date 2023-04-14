@@ -1,3 +1,7 @@
+@extends('layouts.web')
+
+@section('content')
+
 <h1>Features</h1>
 
 @php
@@ -69,6 +73,9 @@ Your name is : {{ucFirst($name)}} {{$lastName}}
 	You are not admin.....
 @endif
 
+
+
+@endsection
 
 
 

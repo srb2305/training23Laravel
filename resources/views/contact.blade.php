@@ -1,13 +1,6 @@
+@extends('layouts.web')
 
-
-<a href="/">Home</a>
-<a href="/about">About</a>
-<a href="/contact">Contact</a>
-
-<a href="{{ url('/contact') }}">Contact</a>
-
-
-
+@section('content')
 
 <h1>contact</h1>
 
@@ -38,3 +31,5 @@ $name = 'ram';
 @endfor
 
 {{ url('/'); }}
+
+@endsection

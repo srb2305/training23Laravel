@@ -15,6 +15,11 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+                        <br>
+                    {{ Auth::user()->email }}<br>
+                    {{ Auth::user()->name }}
+                    
                 </div>
             </div>
         </div>

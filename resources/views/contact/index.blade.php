@@ -1,3 +1,7 @@
+@extends('layouts.web')
+
+@section('content')
+
 <h1>Contact List</h1>
 
 <table border="1">
@@ -27,3 +31,6 @@
 </table>
 
 {{$data->links()}}
+
+
+@endsection

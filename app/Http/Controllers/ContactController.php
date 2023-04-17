@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contact;
+use App\Models\User;
 use Carbon\Carbon;
+use DB;
 
 class ContactController extends Controller
 {
@@ -15,6 +17,14 @@ class ContactController extends Controller
     {
         $data = Contact::paginate(4);
         return view('contact.index',compact('data'));
+    }
+    /**
+     * Display a listing of the resource.
+     */
+    public function getEnquriey()
+    {
+        $data = User::paginate(4);
+        return view('enquries.index',compact('data'));
     }
 
     /**
@@ -38,11 +48,12 @@ class ContactController extends Controller
         
         //$output = DB::table('contacts')->insert($insert);
         $output = Contact::insert($insert);
-        if($output){
-            return redirect('contact')->with('success','Inserted Successfully');
-        }else{
-            return redirect('contact')->with('error','Something went wrong');
-        }
+        return true;
+        // if($output){
+        //     return redirect('contact')->with('success','Inserted Successfully');
+        // }else{
+        //     return redirect('contact')->with('error','Something went wrong');
+        // }
     }
 
     /**

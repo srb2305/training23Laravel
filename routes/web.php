@@ -15,16 +15,38 @@ use App\Http\Controllers\ContactController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+Route::get('index', function () {
+    return view('index');
 });
 
 Route::get('about', function () {
    return view('about');
 });
 
-Route::get('features', function () {
-   return view('features');
+Route::get('contact', function () {
+   return view('contact');
 });
+
+Route::get('blog', function () {
+   return view('blog');
+});
+
+Route::get('course', function () {
+   return view('course');
+});
+
+Route::get('single', function () {
+   return view('single');
+});
+
+Route::get('teacher', function () {
+   return view('teacher');
+});
+
+
+
 
 
 Route::get('user_list', [UserController::class,'index']); // PSR4
@@ -32,7 +54,7 @@ Route::get('user_add', [UserController::class,'create']); // PSR4
 Route::post('user_add', [UserController::class,'store']); // PSR4
 
 
-Route::get('contact', [ContactController::class,'index']);
+Route::get('enquries', [ContactController::class,'getEnquriey']);
 Route::get('contact/{id}', [ContactController::class,'show']);
 Route::get('contactEdit/{id}', [ContactController::class,'edit']);
 Route::get('contactDelete/{id}', [ContactController::class,'destroy']);

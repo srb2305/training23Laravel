@@ -58,11 +58,11 @@ Route::get('enquries', [ContactController::class,'getEnquriey']);
 Route::get('contact/{id}', [ContactController::class,'show']);
 Route::get('contactEdit/{id}', [ContactController::class,'edit']);
 Route::get('contactDelete/{id}', [ContactController::class,'destroy']);
-Route::get('contact_add', [ContactController::class,'create']);
+Route::get('contact_add', [ContactController::class,'create'])->name('addcontact');
 Route::post('contact_store', [ContactController::class,'store']); // PSR4
 Route::post('contactUpdate', [ContactController::class,'update']); // PSR4
 
 
 Auth::routes(); // login registration change_password forget password
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('IsUser');

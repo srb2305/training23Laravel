@@ -16,8 +16,14 @@ class UserController extends Controller
   	}
 
   	public function store(Request $request){
-  		//dd($request); // die and dump
-  		$insert['name'] = $request['name'];
+  		$validated = $request->validate([
+          'name' => 'required|min:3',
+          'email' => 'required|unique:users|max:100',
+          'contact' => 'required',
+          'password' => 'required|min:6|confirmed'
+      ]);
+
+      $insert['name'] = $request['name'];
   		$insert['email'] = $request['email'];
   		$insert['contact'] = $request['contact'];
   		$insert['password'] = bcrypt($request['password']);

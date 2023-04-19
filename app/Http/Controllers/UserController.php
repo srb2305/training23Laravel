@@ -11,6 +11,10 @@ class UserController extends Controller
   		return view('users.index');
   	}
 
+    public function show($id){
+
+    }
+
   	public function create(){
   		return view('users.add');
   	}

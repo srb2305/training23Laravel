@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 use App\Models\Contact;
 use App\Models\User;
 use Carbon\Carbon;
+use App\Http\Traits\CommonTraits;
 use DB;
 
 class ContactController extends Controller
 {
+    use CommonTraits;
     /**
      * Display a listing of the resource.
      */
@@ -61,8 +63,9 @@ class ContactController extends Controller
      */
     public function show(string $id)
     {
-       // $data = Contact::where('id',$id)->first();
-       $data = Contact::find($id);
+        // $data = Contact::where('id',$id)->first();
+        //$data = Contact::find($id);
+        $data = $this->getContact($id); // call traits
        return view('contact.show',compact('data'));
     }
 

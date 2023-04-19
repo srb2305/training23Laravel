@@ -51,10 +51,12 @@ Route::get('teacher', function () {
 
 Route::get('user_list', [UserController::class,'index']); // PSR4
 Route::get('user_add', [UserController::class,'create']); // PSR4
+//Route::get('user_show/{id}', [UserController::class,'show']); // PSR4
 Route::post('user_add', [UserController::class,'store']); // PSR4
 
 
 Route::get('enquries', [ContactController::class,'getEnquriey']);
+Route::get('contact_list', [ContactController::class,'index']);
 Route::get('contact/{id}', [ContactController::class,'show']);
 Route::get('contactEdit/{id}', [ContactController::class,'edit']);
 Route::get('contactDelete/{id}', [ContactController::class,'destroy']);

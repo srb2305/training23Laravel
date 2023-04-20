@@ -68,3 +68,8 @@ Route::post('contactUpdate', [ContactController::class,'update']); // PSR4
 Auth::routes(); // login registration change_password forget password
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('IsUser');
+
+Route::get('/testmail',function(){
+	return view('mail.test');
+} );
+Route::get('/sendMail', [App\Http\Controllers\HomeController::class, 'sendMail']);

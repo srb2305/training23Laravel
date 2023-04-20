@@ -1,5 +1,6 @@
 <?php
-use DB;
+
+use Illuminate\Support\Facades\DB;
 
 if (! function_exists('getProjectTitle')) {
 	function getProjectTitle(){

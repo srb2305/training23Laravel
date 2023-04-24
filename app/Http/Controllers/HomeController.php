@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Mail;
+use Auth;
 
 class HomeController extends Controller
 {

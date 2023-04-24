@@ -18,8 +18,9 @@
 
                         <br>
                     {{ Auth::user()->email }}<br>
-                    {{ Auth::user()->name }}
+                    My Name : {{ Auth::user()->name }}
                     
+
                 </div>
             </div>
         </div>

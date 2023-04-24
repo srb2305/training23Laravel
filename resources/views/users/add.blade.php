@@ -22,7 +22,7 @@
         </ul>
     </div>
 @endif
-<form action="{{ url('user_add') }}" method="POST">
+<form action="{{ url('user_add') }}" method="POST" enctype="multipart/form-data">
 	@csrf
 	Name : <input type="text" name="name" value="{{old('name')}}"> 
 	@error('name')
@@ -37,6 +37,7 @@
         </span>
     @enderror <br>
 	Contact : <input type="number" name="contact" value="{{old('contact')}}"> <br>
+	Profile: <input type="file" name="image" ><br>
 	Password : <input type="text" name="password" > <br>
 	Confirm Password : <input type="text" name="password_confirmation" > <br>
 	<input type="submit" name="submit" value="Submit">

@@ -55,4 +55,53 @@ class UserController extends Controller
   			return redirect()->back()->with('error','Inserted Successfully');
   		}
   	}
+
+
+
+    // API for get user list
+    public function apiUserList(Request $request){
+      $response['status'] = false;
+      $response['message'] = "Something went wrong";
+
+      $data = DB::table('users')
+        ->select('id','name','email','created_at')
+        ->orderBy('id','DESC')
+        ->get()
+        ->toArray();
+
+        
+      if($data){
+        $response['status'] = true;
+        $response['message'] = "Success";
+        $response['data'] = $data;
+      }
+      return response()->json($response);
+    }
+
+    public function apiUserAdd(Request $request){
+      $response['status'] = false;
+      $response['message'] = "Something went wrong";
+
+      $fileName = '';
+      if($request->hasFile('image')){
+        $file = $request->file('image');
+        $ext = $file->getClientOriginalExtension();
+        $fileName = time().'.'.$ext; // 434343434.pdf
+        $destinationPath = 'userImage';
+        $file->move($destinationPath,$fileName);
+      }
+
+      $insert['name'] = $request['name'];
+      $insert['email'] = $request['email'];
+      $insert['contact'] = $request['contact'];
+      $insert['image'] = $fileName;
+      $insert['password'] = bcrypt($request['password']);
+      $output = DB::table('users')->insert($insert);
+      if($output){
+        $response['status'] = true;
+        $response['message'] = "Insert Success";
+      }
+      return response()->json($response);
+
+    }
 }
